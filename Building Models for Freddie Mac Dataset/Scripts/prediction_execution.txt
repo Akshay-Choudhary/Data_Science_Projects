@@ -1,0 +1,332 @@
+[1] "================= output of the lm() summary on full model ================================= "
+
+Call:
+lm(formula = origintrate ~ creditscore + firsttimehome + maturitydate + 
+    msa + nofunits + occstatus + origcltv + dtiratio + origupb + 
+    origltv + propstate + proptype + loanpurpose + origterm + 
+    nofborrowers, data = orig1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.6082 -0.1777 -0.0041  0.1570  4.3908 
+
+Coefficients:
+                Estimate Std. Error  t value Pr(>|t|)    
+(Intercept)   -2.978e+02  9.494e+00  -31.365  < 2e-16 ***
+creditscore   -7.969e-04  8.984e-06  -88.699  < 2e-16 ***
+firsttimehome  3.256e-02  1.648e-03   19.760  < 2e-16 ***
+maturitydate   1.514e-03  4.735e-05   31.970  < 2e-16 ***
+msa            8.792e-07  4.403e-08   19.970  < 2e-16 ***
+nofunits       6.966e-02  2.365e-03   29.459  < 2e-16 ***
+occstatus     -1.385e-01  1.838e-03  -75.385  < 2e-16 ***
+origcltv      -3.582e-04  1.055e-04   -3.396 0.000685 ***
+dtiratio      -9.352e-04  4.224e-05  -22.143  < 2e-16 ***
+origupb       -9.266e-07  6.395e-09 -144.882  < 2e-16 ***
+origltv        2.545e-03  1.085e-04   23.446  < 2e-16 ***
+propstate     -4.839e-04  3.315e-05  -14.596  < 2e-16 ***
+proptype      -1.132e-02  4.007e-04  -28.247  < 2e-16 ***
+loanpurpose   -2.313e-02  6.635e-04  -34.856  < 2e-16 ***
+origterm      -1.011e-02  3.947e-04  -25.626  < 2e-16 ***
+nofborrowers  -1.497e-02  1.045e-03  -14.323  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.295 on 351723 degrees of freedom
+Multiple R-squared:  0.357,	Adjusted R-squared:  0.3569 
+F-statistic: 1.302e+04 on 15 and 351723 DF,  p-value: < 2.2e-16
+
+[1] "================= output prediction accuracy of full model on test data ================================= "
+                  ME      RMSE       MAE       MPE     MAPE
+Test set -0.06785439 0.3849605 0.2912818 -1.594619 5.237709
+[1] "================= output of variable selection : exhaustive search ================================= "
+Subset selection object
+Call: regsubsets.formula(origintrate ~ creditscore + firsttimehome + 
+    maturitydate + msa + nofunits + occstatus + origcltv + dtiratio + 
+    origupb + origltv + propstate + proptype + loanpurpose + 
+    origterm + nofborrowers, data = orig1, nvmax = 12, really.big = T)
+15 Variables  (and intercept)
+              Forced in Forced out
+creditscore       FALSE      FALSE
+firsttimehome     FALSE      FALSE
+maturitydate      FALSE      FALSE
+msa               FALSE      FALSE
+nofunits          FALSE      FALSE
+occstatus         FALSE      FALSE
+origcltv          FALSE      FALSE
+dtiratio          FALSE      FALSE
+origupb           FALSE      FALSE
+origltv           FALSE      FALSE
+propstate         FALSE      FALSE
+proptype          FALSE      FALSE
+loanpurpose       FALSE      FALSE
+origterm          FALSE      FALSE
+nofborrowers      FALSE      FALSE
+1 subsets of each size up to 12
+Selection Algorithm: exhaustive
+          creditscore firsttimehome maturitydate msa nofunits occstatus origcltv dtiratio origupb origltv propstate
+1  ( 1 )  " "         " "           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+2  ( 1 )  " "         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+3  ( 1 )  "*"         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+4  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     " "     " "      
+5  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+6  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+7  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+8  ( 1 )  "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+9  ( 1 )  "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+10  ( 1 ) "*"         " "           "*"          " " "*"      "*"       " "      "*"      "*"     "*"     " "      
+11  ( 1 ) "*"         "*"           "*"          " " "*"      "*"       " "      "*"      "*"     "*"     " "      
+12  ( 1 ) "*"         "*"           "*"          "*" "*"      "*"       " "      "*"      "*"     "*"     " "      
+          proptype loanpurpose origterm nofborrowers
+1  ( 1 )  " "      " "         " "      " "         
+2  ( 1 )  " "      " "         " "      " "         
+3  ( 1 )  " "      " "         " "      " "         
+4  ( 1 )  " "      " "         " "      " "         
+5  ( 1 )  " "      " "         " "      " "         
+6  ( 1 )  " "      "*"         " "      " "         
+7  ( 1 )  "*"      "*"         " "      " "         
+8  ( 1 )  "*"      "*"         " "      " "         
+9  ( 1 )  "*"      "*"         "*"      " "         
+10  ( 1 ) "*"      "*"         "*"      " "         
+11  ( 1 ) "*"      "*"         "*"      " "         
+12  ( 1 ) "*"      "*"         "*"      " "         
+  (Intercept)   creditscore firsttimehome  maturitydate      nofunits     occstatus      dtiratio       origupb 
+-2.970659e+02 -7.952543e-04  3.347571e-02  1.510268e-03  7.038346e-02 -1.377620e-01 -8.620775e-04 -9.298631e-07 
+      origltv      proptype   loanpurpose      origterm 
+ 2.109557e-03 -1.242941e-02 -2.459548e-02 -1.007067e-02 
+[1] "which"  "rsq"    "rss"    "adjr2"  "cp"     "bic"    "outmat" "obj"   
+ [1] 35097.34 32884.32 31908.30 31337.30 31036.98 30963.12 30878.41 30802.97 30747.89 30708.29 30672.22 30640.08
+ [1] 0.2624767 0.3089785 0.3294863 0.3414834 0.3477924 0.3493425 0.3511208 0.3527042 0.3538598 0.3546902 0.3554464
+[12] 0.3561198
+[1] "================= output of variable selection : exhaustive search ================================= "
+Subset selection object
+Call: regsubsets.formula(origintrate ~ creditscore + firsttimehome + 
+    maturitydate + msa + nofunits + occstatus + origcltv + dtiratio + 
+    origupb + origltv + propstate + proptype + loanpurpose + 
+    origterm + nofborrowers, data = orig1, nvmax = 12, really.big = T)
+15 Variables  (and intercept)
+              Forced in Forced out
+creditscore       FALSE      FALSE
+firsttimehome     FALSE      FALSE
+maturitydate      FALSE      FALSE
+msa               FALSE      FALSE
+nofunits          FALSE      FALSE
+occstatus         FALSE      FALSE
+origcltv          FALSE      FALSE
+dtiratio          FALSE      FALSE
+origupb           FALSE      FALSE
+origltv           FALSE      FALSE
+propstate         FALSE      FALSE
+proptype          FALSE      FALSE
+loanpurpose       FALSE      FALSE
+origterm          FALSE      FALSE
+nofborrowers      FALSE      FALSE
+1 subsets of each size up to 12
+Selection Algorithm: exhaustive
+          creditscore firsttimehome maturitydate msa nofunits occstatus origcltv dtiratio origupb origltv propstate
+1  ( 1 )  " "         " "           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+2  ( 1 )  " "         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+3  ( 1 )  "*"         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+4  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     " "     " "      
+5  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+6  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+7  ( 1 )  "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+8  ( 1 )  "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+9  ( 1 )  "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+10  ( 1 ) "*"         " "           "*"          " " "*"      "*"       " "      "*"      "*"     "*"     " "      
+11  ( 1 ) "*"         "*"           "*"          " " "*"      "*"       " "      "*"      "*"     "*"     " "      
+12  ( 1 ) "*"         "*"           "*"          "*" "*"      "*"       " "      "*"      "*"     "*"     " "      
+          proptype loanpurpose origterm nofborrowers
+1  ( 1 )  " "      " "         " "      " "         
+2  ( 1 )  " "      " "         " "      " "         
+3  ( 1 )  " "      " "         " "      " "         
+4  ( 1 )  " "      " "         " "      " "         
+5  ( 1 )  " "      " "         " "      " "         
+6  ( 1 )  " "      "*"         " "      " "         
+7  ( 1 )  "*"      "*"         " "      " "         
+8  ( 1 )  "*"      "*"         " "      " "         
+9  ( 1 )  "*"      "*"         "*"      " "         
+10  ( 1 ) "*"      "*"         "*"      " "         
+11  ( 1 ) "*"      "*"         "*"      " "         
+12  ( 1 ) "*"      "*"         "*"      " "         
+  (Intercept)   creditscore firsttimehome  maturitydate      nofunits     occstatus      dtiratio       origupb 
+-2.970659e+02 -7.952543e-04  3.347571e-02  1.510268e-03  7.038346e-02 -1.377620e-01 -8.620775e-04 -9.298631e-07 
+      origltv      proptype   loanpurpose      origterm 
+ 2.109557e-03 -1.242941e-02 -2.459548e-02 -1.007067e-02 
+[1] "which"  "rsq"    "rss"    "adjr2"  "cp"     "bic"    "outmat" "obj"   
+ [1] 35097.34 32884.32 31908.30 31337.30 31036.98 30963.12 30878.41 30802.97 30747.89 30708.29 30672.22 30640.08
+ [1] 0.2624767 0.3089785 0.3294863 0.3414834 0.3477924 0.3493425 0.3511208 0.3527042 0.3538598 0.3546902 0.3554464
+[12] 0.3561198
+[1] "================= output of variable selection : forward selection ================================= "
+Subset selection object
+Call: regsubsets.formula(origintrate ~ creditscore + firsttimehome + 
+    maturitydate + msa + nofunits + occstatus + origcltv + dtiratio + 
+    origupb + origltv + propstate + proptype + loanpurpose + 
+    origterm + nofborrowers, data = orig1, nvmax = 8, method = "forward")
+15 Variables  (and intercept)
+              Forced in Forced out
+creditscore       FALSE      FALSE
+firsttimehome     FALSE      FALSE
+maturitydate      FALSE      FALSE
+msa               FALSE      FALSE
+nofunits          FALSE      FALSE
+occstatus         FALSE      FALSE
+origcltv          FALSE      FALSE
+dtiratio          FALSE      FALSE
+origupb           FALSE      FALSE
+origltv           FALSE      FALSE
+propstate         FALSE      FALSE
+proptype          FALSE      FALSE
+loanpurpose       FALSE      FALSE
+origterm          FALSE      FALSE
+nofborrowers      FALSE      FALSE
+1 subsets of each size up to 8
+Selection Algorithm: forward
+         creditscore firsttimehome maturitydate msa nofunits occstatus origcltv dtiratio origupb origltv propstate
+1  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+2  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+3  ( 1 ) "*"         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+4  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     " "     " "      
+5  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+6  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+7  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+8  ( 1 ) "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+         proptype loanpurpose origterm nofborrowers
+1  ( 1 ) " "      " "         " "      " "         
+2  ( 1 ) " "      " "         " "      " "         
+3  ( 1 ) " "      " "         " "      " "         
+4  ( 1 ) " "      " "         " "      " "         
+5  ( 1 ) " "      " "         " "      " "         
+6  ( 1 ) " "      "*"         " "      " "         
+7  ( 1 ) "*"      "*"         " "      " "         
+8  ( 1 ) "*"      "*"         " "      " "         
+  (Intercept)   creditscore  maturitydate      nofunits     occstatus       origupb       origltv      proptype 
+-5.453141e+01 -7.746660e-04  3.007824e-04  6.949397e-02 -1.364597e-01 -9.545278e-07  2.086558e-03 -1.277726e-02 
+  loanpurpose 
+-2.149435e-02 
+[1] "which"  "rsq"    "rss"    "adjr2"  "cp"     "bic"    "outmat" "obj"   
+[1] 35097.34 32884.32 31908.30 31337.30 31036.98 30963.12 30878.41 30802.97
+[1] 0.2624767 0.3089785 0.3294863 0.3414834 0.3477924 0.3493425 0.3511208 0.3527042
+[1] "================= output of variable selection : backward selection ================================="
+Subset selection object
+Call: regsubsets.formula(origintrate ~ creditscore + firsttimehome + 
+    maturitydate + msa + nofunits + occstatus + origcltv + dtiratio + 
+    origupb + origltv + propstate + proptype + loanpurpose + 
+    origterm + nofborrowers, data = orig1, nvmax = 8, method = "backward")
+15 Variables  (and intercept)
+              Forced in Forced out
+creditscore       FALSE      FALSE
+firsttimehome     FALSE      FALSE
+maturitydate      FALSE      FALSE
+msa               FALSE      FALSE
+nofunits          FALSE      FALSE
+occstatus         FALSE      FALSE
+origcltv          FALSE      FALSE
+dtiratio          FALSE      FALSE
+origupb           FALSE      FALSE
+origltv           FALSE      FALSE
+propstate         FALSE      FALSE
+proptype          FALSE      FALSE
+loanpurpose       FALSE      FALSE
+origterm          FALSE      FALSE
+nofborrowers      FALSE      FALSE
+1 subsets of each size up to 8
+Selection Algorithm: backward
+         creditscore firsttimehome maturitydate msa nofunits occstatus origcltv dtiratio origupb origltv propstate
+1  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+2  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+3  ( 1 ) "*"         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+4  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     " "     " "      
+5  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+6  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+7  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+8  ( 1 ) "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+         proptype loanpurpose origterm nofborrowers
+1  ( 1 ) " "      " "         " "      " "         
+2  ( 1 ) " "      " "         " "      " "         
+3  ( 1 ) " "      " "         " "      " "         
+4  ( 1 ) " "      " "         " "      " "         
+5  ( 1 ) " "      " "         " "      " "         
+6  ( 1 ) " "      "*"         " "      " "         
+7  ( 1 ) "*"      "*"         " "      " "         
+8  ( 1 ) "*"      "*"         " "      " "         
+  (Intercept)   creditscore  maturitydate      nofunits     occstatus       origupb       origltv      proptype 
+-5.453141e+01 -7.746660e-04  3.007824e-04  6.949397e-02 -1.364597e-01 -9.545278e-07  2.086558e-03 -1.277726e-02 
+  loanpurpose 
+-2.149435e-02 
+[1] "which"  "rsq"    "rss"    "adjr2"  "cp"     "bic"    "outmat" "obj"   
+[1] 35097.34 32884.32 31908.30 31337.30 31036.98 30963.12 30878.41 30802.97
+[1] 0.2624767 0.3089785 0.3294863 0.3414834 0.3477924 0.3493425 0.3511208 0.3527042
+[1] "================= output of variable selection : step selection ================================="
+Subset selection object
+Call: regsubsets.formula(origintrate ~ creditscore + firsttimehome + 
+    maturitydate + msa + nofunits + occstatus + origcltv + dtiratio + 
+    origupb + origltv + propstate + proptype + loanpurpose + 
+    origterm + nofborrowers, data = orig1, nvmax = 8, method = "seqrep")
+15 Variables  (and intercept)
+              Forced in Forced out
+creditscore       FALSE      FALSE
+firsttimehome     FALSE      FALSE
+maturitydate      FALSE      FALSE
+msa               FALSE      FALSE
+nofunits          FALSE      FALSE
+occstatus         FALSE      FALSE
+origcltv          FALSE      FALSE
+dtiratio          FALSE      FALSE
+origupb           FALSE      FALSE
+origltv           FALSE      FALSE
+propstate         FALSE      FALSE
+proptype          FALSE      FALSE
+loanpurpose       FALSE      FALSE
+origterm          FALSE      FALSE
+nofborrowers      FALSE      FALSE
+1 subsets of each size up to 8
+Selection Algorithm: 'sequential replacement'
+         creditscore firsttimehome maturitydate msa nofunits occstatus origcltv dtiratio origupb origltv propstate
+1  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+2  ( 1 ) " "         " "           "*"          " " " "      " "       " "      " "      "*"     " "     " "      
+3  ( 1 ) "*"         "*"           "*"          " " " "      " "       " "      " "      " "     " "     " "      
+4  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     " "     " "      
+5  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+6  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+7  ( 1 ) "*"         " "           "*"          " " " "      "*"       " "      " "      "*"     "*"     " "      
+8  ( 1 ) "*"         " "           "*"          " " "*"      "*"       " "      " "      "*"     "*"     " "      
+         proptype loanpurpose origterm nofborrowers
+1  ( 1 ) " "      " "         " "      " "         
+2  ( 1 ) " "      " "         " "      " "         
+3  ( 1 ) " "      " "         " "      " "         
+4  ( 1 ) " "      " "         " "      " "         
+5  ( 1 ) " "      " "         " "      " "         
+6  ( 1 ) " "      "*"         " "      " "         
+7  ( 1 ) "*"      "*"         " "      " "         
+8  ( 1 ) "*"      "*"         " "      " "         
+  (Intercept)   creditscore  maturitydate      nofunits     occstatus       origupb       origltv      proptype 
+-5.453141e+01 -7.746660e-04  3.007824e-04  6.949397e-02 -1.364597e-01 -9.545278e-07  2.086558e-03 -1.277726e-02 
+  loanpurpose 
+-2.149435e-02 
+[1] "which"  "rsq"    "rss"    "adjr2"  "cp"     "bic"    "outmat" "obj"   
+[1] 35097.34 32884.32 33918.38 31337.30 31036.98 30963.12 30878.41 30802.97
+[1] 0.2624767 0.3089785 0.2872469 0.3414834 0.3477924 0.3493425 0.3511208 0.3527042
+[1] "================= Random forest importance of each predictor in the model ================================= "
+[1] "================= Random forest summary on full model ================================= "
+                Length Class  Mode     
+call                 4 -none- call     
+type                 1 -none- character
+predicted       351739 -none- numeric  
+mse                 20 -none- numeric  
+rsq                 20 -none- numeric  
+oob.times       351739 -none- numeric  
+importance           8 -none- numeric  
+importanceSD         0 -none- NULL     
+localImportance      0 -none- NULL     
+proximity            0 -none- NULL     
+ntree                1 -none- numeric  
+mtry                 1 -none- numeric  
+forest              11 -none- list     
+coefs                0 -none- NULL     
+y               351739 -none- numeric  
+test                 0 -none- NULL     
+inbag                0 -none- NULL     
+terms                3 terms  call     
+[1] "=================================== output prediction summary of random forest on test data ================================= "
+                 ME      RMSE       MAE       MPE     MAPE
+Test set 0.03485531 0.3042204 0.2330878 0.3417883 4.024299
