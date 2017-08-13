@@ -14,3 +14,5 @@ Tasks I have performed on these datasets include:
 8. Created Data Pipeline specifically Luigi to automate all the above task.
 
 Conducted Exploratory analysis, Summary metrics by writing python scripts and visualised the results using PowerBI and Tableau.
+
+Here is video demo of my project on Emergency Medical Services(New York) Dataset - https://youtu.be/q7VJnzH3Vyk
